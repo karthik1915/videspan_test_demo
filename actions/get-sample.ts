@@ -9,20 +9,19 @@ export type FileRecord = {
   size: number; // in bytes
 };
 
-export default async function GetFilesFromDB(): Promise<FileRecord[]> {
-  const sampleFilesRecords: FileRecord[] = [
-    { name: "file1.csv", size: 1024 },
-    { name: "testdata1.csv", size: 2048 },
-    { name: "info.csv", size: 512 },
-  ];
+const sampleFilesRecords: FileRecord[] = [
+  { name: "file1.csv", size: 1024 },
+  { name: "testdata1.csv", size: 2048 },
+  { name: "info.csv", size: 512 },
+];
 
+export default async function GetFilesFromDB(
+  shouldFail: boolean = false
+): Promise<FileRecord[]> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // 30% chance of failure
-      const shouldFail = Math.random() < 0.3;
-
       if (shouldFail) {
-        reject(new Error("Failed to fetch file records. Please try again."));
+        reject();
       } else {
         resolve(sampleFilesRecords);
       }

@@ -49,6 +49,7 @@ function UploadPage() {
     <>
       <div className="w-full flex items-center justify-center my-10">
         <button
+          id="button-toggle-tabs"
           onClick={toggleTab}
           className="bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
@@ -81,9 +82,15 @@ function UploadPage() {
                 accept=".csv"
                 onChange={handleFileChange}
               />
-              {error && <p className="text-red-500 text-lg mt-2">{error}</p>}
+              {error && (
+                <p id="errorMsg" className="text-red-500 text-lg mt-2">
+                  {error}
+                </p>
+              )}
               {message && (
-                <p className="text-emerald-500 text-lg mt-2">{message}</p>
+                <p id="successMsg" className="text-emerald-500 text-lg mt-2">
+                  {message}
+                </p>
               )}
               <button
                 type="submit"

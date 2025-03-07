@@ -13,7 +13,9 @@ function FilesTable() {
         const data = await GetFilesFromDB();
         setFiles(data);
       } catch (error) {
-        setErr((error as Error).message);
+        if (error instanceof Error) {
+          setErr("Something went wrong! Please try again");
+        }
       }
     };
     fetchData();
@@ -42,15 +44,19 @@ function FilesTable() {
           <tbody>
             {files.length > 0 ? (
               files.map((file, index) => (
-                <tr key={index} className="border-b hover:bg-gray-50">
+                <tr
+                  id={`table-row-${index}`}
+                  key={index}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td className="py-2 px-4">{file.name}</td>
                   <td className="py-2 px-4">{file.size}</td>
                 </tr>
               ))
             ) : (
-              <tr>
+              <tr id="table-message">
                 <td colSpan={2} className="text-center py-4  text-red-400">
-                  {err ? err : "No files found"}
+                  {err ? err : "loading..."}
                 </td>
               </tr>
             )}

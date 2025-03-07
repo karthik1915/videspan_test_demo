@@ -17,7 +17,10 @@ export default function Home() {
         <div className="">
           <h2 className="text-2xl text-center">List of Contents</h2>
           <div className="flex items-center justify-center my-6">
-            <ul className="list-disc pl-6 space-y-4 w-32 self-center *:hover:underline">
+            <ul
+              id="list-of-contents"
+              className="list-disc pl-6 space-y-4 w-32 self-center *:hover:underline"
+            >
               <li>
                 <Link href="#section1">Section 1</Link>
               </li>
