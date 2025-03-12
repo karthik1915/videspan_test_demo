@@ -14,3 +14,7 @@ npm run test
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 You need to have chrome Browser to test _selenium_ based testing
+
+## Here is the demo video linked in google drive for your reference
+
+👉 [Demo Video](https://drive.google.com/file/d/16ng0pdvbvQZFsQi7UKrOO4JETro0IgWe/view?usp=sharing)
